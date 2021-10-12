@@ -5,13 +5,76 @@
 	 <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     </head>
     <body>
-	            <script>
+	    <script>
+            	 setInterval( function(){ $('#mytime').html( "Client Time is " + new Date());}, 500);
+	    </script>
 
-               			 setInterval( function(){ $('#mytime').html( "Client Time is " + new Date());}, 500);
-				 setInterval( function(){ $('#hello').html( "hello");}, 500);
-        	</script>
-	    <h1 id="mytime"></h1>
-	    <h2 id="hello"> </h2>
-	    <h1>Server Time is {{server_time}}</h1>
+	    <h1 id="mytime" style="color: Gray"></h1>
+	    <h1 style="color:Gray">Server Time is {{server_time}}</h1>
+
+	    <style>
+		body {
+			background-image: url('https://wallpaperforu.com/wp-content/uploads/2020/08/kimetsu-no-yaiba-wallpaper-20083114053834-2048x1152.jpg');
+		}
+	    </style>
+
+		<h1 style ="color:black;">
+
+		<button id="tanjiro" type="button">Tanjiro</button>
+		<button id="zenitzu" type="button">Zenitzu</button>
+		<button id="inosuke" type="button">Inosuke</button>
+		<button id="nezuko" type="button">Nezuko</button>
+		<button id="all" type="button">Show All :)</button>
+		</h1>
+
+		<script>
+			$("#all").click(function(){
+				$(".imagediv").fadeIn();
+			});
+		</script>
+
+		<script>
+			$("#tanjiro").click(function(){
+				alert("TANJIRO!");
+			 });
+		</script>
+			
+		<script>
+			$("#zenitzu").click(function(){
+				alert("ZENITZU!");
+			});
+		</script>
+
+		<script>
+			$("#inosuke").click(function(){
+				alert("INOSUKE!");
+			});
+                </script>
+
+		<script>
+		        $("#nezuko").click(function(){
+				alert("NEZUKO!");
+			});
+                </script>
+
+		<style>
+			.imagediv{
+				display:none;
+			}
+		</style>
+
+
+		<div class="imagediv">
+			<img src="https://921435.smushcdn.com/2306015/wp-content/uploads/2021/07/tanjiro-mark-fi-1-768x431.jpg?lossy=1&strip=1&webp=1" 
+				width="300" height="200"/>
+			<img src="https://cdn.alfabetajuega.com/wp-content/uploads/2021/04/zenitsu1.jpg"
+				width="300" height="200"/>
+			<img src="https://i.ytimg.com/vi/C6Hc6icZqwU/maxresdefault.jpg"
+				width="300" height="200"/>
+			<img src="https://static2.cbrimages.com/wordpress/wp-content/uploads/2019/10/Nezuko-Memes-Featured.jpg?q=50&fit=crop&w=960&h=500&dpr=1.5"
+				width="300" height="200"/
+		</div>
     </body>
+
+
 </html>
