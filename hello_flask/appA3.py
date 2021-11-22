@@ -112,7 +112,7 @@ def getbooks():
 				print("Adding books")
 				if count > 0:
 					message += ","
-				message += "{\"title\": \"%s\", \"author\": \"%s\", \"price\": %s, \"book_id\": %s}" % (database_row[1], database_row[2], str(database_row[3]), str(database_row[0]))
+				message += "{\"title\": \"%s\", \"author\": \"%s\", \"price\": %s, \"book_id\": %s}" % (database_row[2], database_row[1], str(database_row[3]), str(database_row[0]))
 				count += 1
 		message += "]}"
 
