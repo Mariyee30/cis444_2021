@@ -26,4 +26,4 @@ def handle_request():
 			user = {"user_id": row[0]}
 			return json_response(data={"jwt": create_token(user)})
 		else:
-			return json_response(data={"message": "The password for '" + username_from_form + "' is incorrect."}, status=404)
+			return json_response(data={"message": "The password for '" + username_from_user_form + "' is incorrect."}, status=404)
