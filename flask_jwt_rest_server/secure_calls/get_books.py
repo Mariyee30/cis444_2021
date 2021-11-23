@@ -13,8 +13,8 @@ def handle_request():
 
 	try :
 		user_id = g.jwt_data['user_id']
-		#string = " ".join(("SELECT * FROM books WHERE NOT EXISTS","(SELECT FROM purchased WHERE books.id = purchased.book_id AND",str(user_id),"= purchased_books.user_id);"))
-		#cursor.execute(string)
+		#string = " ".join(("SELECT * FROM books WHERE NOT EXISTS","(SELECT FROM purchased WHERE books.id = purchased.book_id AND",str(user_id),"= purchased.user_id);"))
+		#cursor.execute(string, user_id)
 		cursor.execute("select * from books;", user_id)
 		print("Got Books")
 
