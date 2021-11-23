@@ -4,16 +4,26 @@ from tools.token_tools import create_token
 
 from tools.logging import logger
 
+import jwt
+
 def handle_request():
-    logger.debug("Login Handle Request")
-    #use data here to auth the user
+	logger.debug("Login Handle Request")
+	#use data here to auth the user
 
-    password_from_user_form = request.form['password']
-    user = {
-            "sub" : request.form['firstname'] #sub is used by pyJwt as the owner of the token
-            }
-    if not user:
-        return json_response(status_=401, message = 'Invalid credentials', authenticated =  False )
+	username_from_user_form = request.form['username']
+	password_from_user_form = request.form['password']
 
-    return json_response( token = create_token(user) , authenticated = True)
+	cursor = g.db.cursor()
 
+	cursor.execute("SELECT * FROM users WHERE username = '%s';" % (username_from_user_form))
+	row = cursor.fetchone()
+
+	if row is None:
+		return json_response(data={"message": "The username '" + username_from_user_form + "' does not exist."}, status=404)
+
+	else:
+		if password_from_user_form == row[2]:
+			user = {"user_id": row[0]}
+			return json_response(data={"jwt": create_token(user)})
+		else:
+			return json_response(data={"message": "The password for '" + username_from_form + "' is incorrect."}, status=404)
